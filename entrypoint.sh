@@ -10,6 +10,12 @@ echo "### Adding git remote..."
 git remote add origin https://x-access-token:$ACCESS_TOKEN@github.com/$REPO_FULLNAME.git
 echo "### Getting branch"
 BRANCH=${GITHUB_REF#*refs/heads/}
+
+if [[ $BRANCH == refs/tags* ]]; then
+  echo "## The push was a tag, aborting!"
+  exit
+fi
+
 echo "### git fetch $BRANCH ..."
 git fetch origin $BRANCH
 echo "### Branch: $BRANCH (ref: $GITHUB_REF )"
