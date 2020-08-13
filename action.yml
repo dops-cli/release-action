@@ -1,0 +1,11 @@
+name: "Dops release action"
+description: "Creates a new release if the dops version has changed in a commit."
+author: "MarvinJWendt"
+branding:
+  icon: award
+  color: orange
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.myInput }}
