@@ -7,6 +7,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 # Install some packages
 RUN apk add jq bash git go
+RUN apk add --no-cache --upgrade grep
 
 # Start action
 ENTRYPOINT ["/entrypoint.sh"]
